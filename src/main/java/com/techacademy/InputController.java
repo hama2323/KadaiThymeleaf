@@ -10,18 +10,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class InputController {
 
     @GetMapping("/input")
-    public String getForm() {
+    public String getForm(@RequestParam(name = "previous", required = false ) String val, Model model) {
+        model.addAttribute("val",val);
      // input.htmlに画面遷移
         return "input";
     }
 }
-
-/*    @PostMapping("/output")
-    public String postForm(@RequestParam(name = "val", required = false ) String val, Model model) {
-        // フォームから送信されてきた値をModelに登録
-        model.addAttribute("val",val);
-        // output.htmlに画面遷移
-        return "output";
-
-}
-}*/
